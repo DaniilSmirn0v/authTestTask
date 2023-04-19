@@ -26,6 +26,7 @@ class DetailInfoViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureView()
+		configureNavigationBar()
 	}
 }
 
@@ -34,6 +35,51 @@ extension DetailInfoViewController {
 		detailInfoView.collectionView.dataSource = self
 		detailInfoView.collectionView.delegate = self
 		view.backgroundColor = .systemBackground
+	}
+	
+	private func configureNavigationBar() {
+		let backButtonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 17, weight: .regular)
+		let backButtonImage = UIImage(systemName: "chevron.left",
+									  withConfiguration: backButtonImageConfiguration)
+		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(image: backButtonImage,
+														   style: .done,
+														   target: self,
+														   action: #selector(didTapBackButton))
+		navigationItem.leftBarButtonItem?.tintColor = .black
+		
+		let sharedButtonConfiguration = UIImage.SymbolConfiguration(pointSize: 17, weight: .regular)
+		let sharedButtonImage = UIImage(systemName: "square.and.arrow.up",
+										withConfiguration: sharedButtonConfiguration)
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(image: sharedButtonImage,
+															style: .plain,
+															target: self,
+															action: #selector(didTapShareButton))
+		navigationItem.rightBarButtonItem?.tintColor = .black
+	}
+	
+	@objc private func didTapBackButton() {
+		navigationController?.popViewController(animated: true)
+	}
+	
+	@objc private func didTapShareButton() {
+		let actionSheetMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		
+		let saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
+			print("saved")
+		}
+		
+		let shareAction = UIAlertAction(title: "Поделиться", style: .default) { _ in
+			print("shared")
+		}
+		let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+		
+		actionSheetMenu.addAction(shareAction)
+		actionSheetMenu.addAction(saveAction)
+		actionSheetMenu.addAction(cancelAction)
+		
+		present(actionSheetMenu, animated: true)
 	}
 }
 
@@ -54,6 +100,4 @@ extension DetailInfoViewController: UICollectionViewDataSource {
 		
 		return cell
 	}
-	
-	
 }

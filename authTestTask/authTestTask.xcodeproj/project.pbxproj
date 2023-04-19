@@ -47,6 +47,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09556E4229F0795B00D6BBF8 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				09556E3A29F01CFE00D6BBF8 /* PhotoCollectionView.swift */,
+				09556E3C29F01D8B00D6BBF8 /* PhotoCollectionViewCell.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		09556E4329F0796700D6BBF8 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				09556E4029F02AA800D6BBF8 /* DetailInfoView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		095F74D729EFFE08009E4033 = {
 			isa = PBXGroup;
 			children = (
@@ -147,8 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				09556E3829F01B3200D6BBF8 /* PhotosViewController.swift */,
-				09556E3A29F01CFE00D6BBF8 /* PhotoCollectionView.swift */,
-				09556E3C29F01D8B00D6BBF8 /* PhotoCollectionViewCell.swift */,
+				09556E4229F0795B00D6BBF8 /* SubViews */,
 			);
 			path = PhotosModule;
 			sourceTree = "<group>";
@@ -157,7 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				09556E3E29F0295100D6BBF8 /* DetailInfoViewController.swift */,
-				09556E4029F02AA800D6BBF8 /* DetailInfoView.swift */,
+				09556E4329F0796700D6BBF8 /* SubViews */,
 			);
 			path = DetailInfoModule;
 			sourceTree = "<group>";
