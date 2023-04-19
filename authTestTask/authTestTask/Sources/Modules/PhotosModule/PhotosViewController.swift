@@ -26,6 +26,7 @@ class PhotosViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		configureView()
+		configureNavigationBar()
 	}
 }
 
@@ -33,12 +34,37 @@ extension PhotosViewController {
 	private func configureView() {
 		photoView.collectionView.dataSource = self
 		photoView.collectionView.delegate = self
+		photoView.backgroundColor = .systemBackground
+	}
+	
+	private func configureNavigationBar() {
+		title = "Mobile UP Gallery"
+		
+		navigationController?.navigationBar.titleTextAttributes = [
+			NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)
+		]
+		
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход",
+															style: .plain,
+															target: self,
+															action: #selector(didTapExitButton))
+		navigationItem.rightBarButtonItem?.tintColor = .black
+		navigationItem.rightBarButtonItem?.setTitleTextAttributes(
+			[NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)], for: .normal
+		)
+	}
+	
+	@objc func didTapExitButton() {
+		// TODO: - Relese exit
+		print("exit button tapped")
 	}
 }
 
+
 extension PhotosViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		print(indexPath.item)
+		let vc = DetailInfoViewController()
+		navigationController?.pushViewController(vc, animated: true)
 	}
 }
 

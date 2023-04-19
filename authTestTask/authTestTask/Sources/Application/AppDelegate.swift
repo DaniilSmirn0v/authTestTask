@@ -15,9 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
 		window = UIWindow(frame: UIScreen.main.bounds)
+		let rootVC = PhotosViewController()
+		let uinavigationController = UINavigationController(rootViewController: rootVC)
 		
-		let rootVC = DetailInfoViewController()
-		window?.rootViewController = rootVC
+		window?.rootViewController = uinavigationController
 		window?.overrideUserInterfaceStyle = .light
 		window?.makeKeyAndVisible()
 		

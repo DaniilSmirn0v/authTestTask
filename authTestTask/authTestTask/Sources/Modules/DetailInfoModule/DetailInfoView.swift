@@ -59,8 +59,7 @@ extension DetailInfoView {
 		let item = NSCollectionLayoutItem(layoutSize: itemSize)
 	
 		let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(54), heightDimension: .absolute(54))
-		let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
-		group.interItemSpacing = NSCollectionLayoutSpacing.fixed(2)
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 			
 		let section = NSCollectionLayoutSection(group: group)
 			
