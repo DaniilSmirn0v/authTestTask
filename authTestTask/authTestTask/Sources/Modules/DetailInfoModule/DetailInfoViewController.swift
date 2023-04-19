@@ -38,7 +38,7 @@ extension DetailInfoViewController {
 	}
 	
 	private func configureNavigationBar() {
-		let backButtonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 17, weight: .regular)
+		let backButtonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 15, weight: .regular)
 		let backButtonImage = UIImage(systemName: "chevron.left",
 									  withConfiguration: backButtonImageConfiguration)
 		
@@ -48,7 +48,7 @@ extension DetailInfoViewController {
 														   action: #selector(didTapBackButton))
 		navigationItem.leftBarButtonItem?.tintColor = .black
 		
-		let sharedButtonConfiguration = UIImage.SymbolConfiguration(pointSize: 17, weight: .regular)
+		let sharedButtonConfiguration = UIImage.SymbolConfiguration(pointSize: 15, weight: .regular)
 		let sharedButtonImage = UIImage(systemName: "square.and.arrow.up",
 										withConfiguration: sharedButtonConfiguration)
 		
