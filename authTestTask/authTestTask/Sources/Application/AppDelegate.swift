@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		window = UIWindow(frame: UIScreen.main.bounds)
 		
-		let rootVC = ViewController()
+		let rootVC = LoginViewController()
 		window?.rootViewController = rootVC
 		window?.overrideUserInterfaceStyle = .light
 		window?.makeKeyAndVisible()
