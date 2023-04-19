@@ -52,13 +52,93 @@
 		095F74E229EFFE09009E4033 /* authTestTask */ = {
 			isa = PBXGroup;
 			children = (
-				095F74E329EFFE09009E4033 /* AppDelegate.swift */,
+				095F74F829F0075A009E4033 /* Resources */,
+				095F74F929F00763009E4033 /* Sources */,
 				095F74E729EFFE09009E4033 /* ViewController.swift */,
-				095F74EC29EFFE09009E4033 /* Assets.xcassets */,
-				095F74EE29EFFE09009E4033 /* LaunchScreen.storyboard */,
-				095F74F129EFFE09009E4033 /* Info.plist */,
 			);
 			path = authTestTask;
+			sourceTree = "<group>";
+		};
+		095F74F829F0075A009E4033 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				095F74FB29F00786009E4033 /* Configuration */,
+				095F74FA29F00776009E4033 /* SupportingFiles */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		095F74F929F00763009E4033 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				095F74FE29F007EF009E4033 /* Application */,
+				095F74FD29F007E7009E4033 /* Services */,
+				095F74FC29F007D8009E4033 /* Modules */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		095F74FA29F00776009E4033 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				095F74EC29EFFE09009E4033 /* Assets.xcassets */,
+				095F74EE29EFFE09009E4033 /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		095F74FB29F00786009E4033 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				095F74F129EFFE09009E4033 /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		095F74FC29F007D8009E4033 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				095F74FF29F00C65009E4033 /* LoginModule */,
+				095F750029F00C71009E4033 /* PhotosModule */,
+				095F750129F00C87009E4033 /* DetailInfoModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		095F74FD29F007E7009E4033 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		095F74FE29F007EF009E4033 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				095F74E329EFFE09009E4033 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		095F74FF29F00C65009E4033 /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		095F750029F00C71009E4033 /* PhotosModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PhotosModule;
+			sourceTree = "<group>";
+		};
+		095F750129F00C87009E4033 /* DetailInfoModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailInfoModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +353,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2AJ52SSRKR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = authTestTask/Info.plist;
+				INFOPLIST_FILE = authTestTask/Resources/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -304,7 +384,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2AJ52SSRKR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = authTestTask/Info.plist;
+				INFOPLIST_FILE = authTestTask/Resources/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
