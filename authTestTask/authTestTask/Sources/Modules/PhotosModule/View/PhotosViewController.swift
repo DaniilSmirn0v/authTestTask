@@ -15,8 +15,18 @@ class PhotosViewController: UIViewController {
 	}
 	
 	// MARK: - Properties
+	private var presenter: PhotosPresenterInputProtocol
 	
 	// MARK: - Initialize
+	init(presenter: PhotosPresenterInputProtocol) {
+		self.presenter = presenter
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
 	
 	// MARK: - Life cycle
 	override func loadView() {
@@ -60,14 +70,20 @@ extension PhotosViewController {
 	}
 }
 
+// MARK: - PhotosPresenterOutputProtocol
+extension PhotosViewController: PhotosPresenterOutputProtocol {
+	
+}
 
+// MARK: - UICollectionViewDelegate
 extension PhotosViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let vc = DetailInfoViewController()
-		navigationController?.pushViewController(vc, animated: true)
+//		let vc = DetailInfoViewController()
+//		navigationController?.pushViewController(vc, animated: true)
 	}
 }
 
+// MARK: - UICollectionViewDataSource
 extension PhotosViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		50

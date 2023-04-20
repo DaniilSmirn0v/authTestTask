@@ -15,8 +15,17 @@ class DetailInfoViewController: UIViewController {
 	}
 	
 	// MARK: - Properties
+	private var presenter: DetailInfoPresenterInputProtocol
 	
 	// MARK: - Initialize
+	init(presenter: DetailInfoPresenterInputProtocol) {
+		self.presenter = presenter
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	// MARK: - LifeCycle
 	override func loadView() {
@@ -81,6 +90,11 @@ extension DetailInfoViewController {
 		
 		present(actionSheetMenu, animated: true)
 	}
+}
+
+// MARK: - DetailInfoPresenterOutputProtocol
+extension DetailInfoViewController: DetailInfoPresenterOutputProtocol {
+	
 }
 
 // MARK: - UICollectionViewDelegate

@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		093EDB5329F07D4300FA51C2 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB5229F07D4300FA51C2 /* AuthViewController.swift */; };
+		093EDB5529F1141300FA51C2 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB5429F1141300FA51C2 /* LoginPresenter.swift */; };
+		093EDB5729F1142500FA51C2 /* LoginPresenterInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB5629F1142500FA51C2 /* LoginPresenterInputProtocol.swift */; };
+		093EDB5929F1143200FA51C2 /* LoginPresenterOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB5829F1143200FA51C2 /* LoginPresenterOutputProtocol.swift */; };
+		093EDB5B29F1144000FA51C2 /* PhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB5A29F1144000FA51C2 /* PhotosPresenter.swift */; };
+		093EDB5D29F1144E00FA51C2 /* PhotosPresenterInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB5C29F1144E00FA51C2 /* PhotosPresenterInputProtocol.swift */; };
+		093EDB5F29F1146300FA51C2 /* PhotosPresenterOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB5E29F1146300FA51C2 /* PhotosPresenterOutputProtocol.swift */; };
+		093EDB6129F1147200FA51C2 /* DetailInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB6029F1147200FA51C2 /* DetailInfoPresenter.swift */; };
+		093EDB6329F1148000FA51C2 /* DetailInfoPresenterInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB6229F1148000FA51C2 /* DetailInfoPresenterInputProtocol.swift */; };
+		093EDB6529F1148F00FA51C2 /* DetailInfoPresenterOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB6429F1148F00FA51C2 /* DetailInfoPresenterOutputProtocol.swift */; };
+		093EDB6F29F1190700FA51C2 /* DetailInfoModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB6E29F1190700FA51C2 /* DetailInfoModuleAssembly.swift */; };
+		093EDB7229F1196300FA51C2 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB7129F1196300FA51C2 /* RouterProtocol.swift */; };
+		093EDB7429F1198F00FA51C2 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB7329F1198F00FA51C2 /* BaseRouter.swift */; };
+		093EDB7729F11A1B00FA51C2 /* PhotosModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB7629F11A1B00FA51C2 /* PhotosModuleAssembly.swift */; };
+		093EDB7A29F11B0300FA51C2 /* LoginModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093EDB7929F11B0300FA51C2 /* LoginModuleAssembly.swift */; };
 		09556E3729F01A3B00D6BBF8 /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09556E3629F01A3B00D6BBF8 /* SF-Pro-Text-Bold.otf */; };
 		09556E3929F01B3200D6BBF8 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09556E3829F01B3200D6BBF8 /* PhotosViewController.swift */; };
 		09556E3B29F01CFE00D6BBF8 /* PhotoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09556E3A29F01CFE00D6BBF8 /* PhotoCollectionView.swift */; };
@@ -21,6 +36,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		093EDB5229F07D4300FA51C2 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		093EDB5429F1141300FA51C2 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		093EDB5629F1142500FA51C2 /* LoginPresenterInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterInputProtocol.swift; sourceTree = "<group>"; };
+		093EDB5829F1143200FA51C2 /* LoginPresenterOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterOutputProtocol.swift; sourceTree = "<group>"; };
+		093EDB5A29F1144000FA51C2 /* PhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenter.swift; sourceTree = "<group>"; };
+		093EDB5C29F1144E00FA51C2 /* PhotosPresenterInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenterInputProtocol.swift; sourceTree = "<group>"; };
+		093EDB5E29F1146300FA51C2 /* PhotosPresenterOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenterOutputProtocol.swift; sourceTree = "<group>"; };
+		093EDB6029F1147200FA51C2 /* DetailInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPresenter.swift; sourceTree = "<group>"; };
+		093EDB6229F1148000FA51C2 /* DetailInfoPresenterInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPresenterInputProtocol.swift; sourceTree = "<group>"; };
+		093EDB6429F1148F00FA51C2 /* DetailInfoPresenterOutputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPresenterOutputProtocol.swift; sourceTree = "<group>"; };
+		093EDB6E29F1190700FA51C2 /* DetailInfoModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoModuleAssembly.swift; sourceTree = "<group>"; };
+		093EDB7129F1196300FA51C2 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		093EDB7329F1198F00FA51C2 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		093EDB7629F11A1B00FA51C2 /* PhotosModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModuleAssembly.swift; sourceTree = "<group>"; };
+		093EDB7929F11B0300FA51C2 /* LoginModuleAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModuleAssembly.swift; sourceTree = "<group>"; };
 		09556E3629F01A3B00D6BBF8 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Bold.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		09556E3829F01B3200D6BBF8 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		09556E3A29F01CFE00D6BBF8 /* PhotoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionView.swift; sourceTree = "<group>"; };
@@ -47,6 +77,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		093EDB6729F114B300FA51C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09556E3E29F0295100D6BBF8 /* DetailInfoViewController.swift */,
+				09556E4329F0796700D6BBF8 /* SubViews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		093EDB6829F114BF00FA51C2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				093EDB6029F1147200FA51C2 /* DetailInfoPresenter.swift */,
+				093EDB6229F1148000FA51C2 /* DetailInfoPresenterInputProtocol.swift */,
+				093EDB6429F1148F00FA51C2 /* DetailInfoPresenterOutputProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		093EDB6929F114CB00FA51C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09556E3829F01B3200D6BBF8 /* PhotosViewController.swift */,
+				09556E4229F0795B00D6BBF8 /* SubViews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		093EDB6A29F114D400FA51C2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				093EDB5A29F1144000FA51C2 /* PhotosPresenter.swift */,
+				093EDB5C29F1144E00FA51C2 /* PhotosPresenterInputProtocol.swift */,
+				093EDB5E29F1146300FA51C2 /* PhotosPresenterOutputProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		093EDB6B29F114E100FA51C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				095F750229F00DD9009E4033 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		093EDB6C29F114E900FA51C2 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				093EDB5429F1141300FA51C2 /* LoginPresenter.swift */,
+				093EDB5629F1142500FA51C2 /* LoginPresenterInputProtocol.swift */,
+				093EDB5829F1143200FA51C2 /* LoginPresenterOutputProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		093EDB6D29F118F400FA51C2 /* DetailInfoModuleAssembly */ = {
+			isa = PBXGroup;
+			children = (
+				093EDB6E29F1190700FA51C2 /* DetailInfoModuleAssembly.swift */,
+			);
+			path = DetailInfoModuleAssembly;
+			sourceTree = "<group>";
+		};
+		093EDB7029F1195300FA51C2 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				093EDB7129F1196300FA51C2 /* RouterProtocol.swift */,
+				093EDB7329F1198F00FA51C2 /* BaseRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		093EDB7529F11A0D00FA51C2 /* PhotosModuleAssembly */ = {
+			isa = PBXGroup;
+			children = (
+				093EDB7629F11A1B00FA51C2 /* PhotosModuleAssembly.swift */,
+			);
+			path = PhotosModuleAssembly;
+			sourceTree = "<group>";
+		};
+		093EDB7829F11AED00FA51C2 /* LoginModuleAssembly */ = {
+			isa = PBXGroup;
+			children = (
+				093EDB7929F11B0300FA51C2 /* LoginModuleAssembly.swift */,
+			);
+			path = LoginModuleAssembly;
+			sourceTree = "<group>";
+		};
 		09556E4229F0795B00D6BBF8 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +181,14 @@
 				09556E4029F02AA800D6BBF8 /* DetailInfoView.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		09556E4429F07D0700D6BBF8 /* AuthModule */ = {
+			isa = PBXGroup;
+			children = (
+				093EDB5229F07D4300FA51C2 /* AuthViewController.swift */,
+			);
+			path = AuthModule;
 			sourceTree = "<group>";
 		};
 		095F74D729EFFE08009E4033 = {
@@ -102,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				095F74FE29F007EF009E4033 /* Application */,
+				093EDB7029F1195300FA51C2 /* Router */,
 				095F74FD29F007E7009E4033 /* Services */,
 				095F74FC29F007D8009E4033 /* Modules */,
 			);
@@ -130,6 +258,7 @@
 		095F74FC29F007D8009E4033 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				09556E4429F07D0700D6BBF8 /* AuthModule */,
 				095F74FF29F00C65009E4033 /* LoginModule */,
 				095F750029F00C71009E4033 /* PhotosModule */,
 				095F750129F00C87009E4033 /* DetailInfoModule */,
@@ -155,7 +284,9 @@
 		095F74FF29F00C65009E4033 /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
-				095F750229F00DD9009E4033 /* LoginViewController.swift */,
+				093EDB7829F11AED00FA51C2 /* LoginModuleAssembly */,
+				093EDB6B29F114E100FA51C2 /* View */,
+				093EDB6C29F114E900FA51C2 /* Presenter */,
 			);
 			path = LoginModule;
 			sourceTree = "<group>";
@@ -163,8 +294,9 @@
 		095F750029F00C71009E4033 /* PhotosModule */ = {
 			isa = PBXGroup;
 			children = (
-				09556E3829F01B3200D6BBF8 /* PhotosViewController.swift */,
-				09556E4229F0795B00D6BBF8 /* SubViews */,
+				093EDB7529F11A0D00FA51C2 /* PhotosModuleAssembly */,
+				093EDB6929F114CB00FA51C2 /* View */,
+				093EDB6A29F114D400FA51C2 /* Presenter */,
 			);
 			path = PhotosModule;
 			sourceTree = "<group>";
@@ -172,8 +304,9 @@
 		095F750129F00C87009E4033 /* DetailInfoModule */ = {
 			isa = PBXGroup;
 			children = (
-				09556E3E29F0295100D6BBF8 /* DetailInfoViewController.swift */,
-				09556E4329F0796700D6BBF8 /* SubViews */,
+				093EDB6D29F118F400FA51C2 /* DetailInfoModuleAssembly */,
+				093EDB6729F114B300FA51C2 /* View */,
+				093EDB6829F114BF00FA51C2 /* Presenter */,
 			);
 			path = DetailInfoModule;
 			sourceTree = "<group>";
@@ -250,13 +383,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				093EDB6529F1148F00FA51C2 /* DetailInfoPresenterOutputProtocol.swift in Sources */,
+				093EDB7A29F11B0300FA51C2 /* LoginModuleAssembly.swift in Sources */,
+				093EDB5F29F1146300FA51C2 /* PhotosPresenterOutputProtocol.swift in Sources */,
+				093EDB7729F11A1B00FA51C2 /* PhotosModuleAssembly.swift in Sources */,
 				09556E4129F02AA800D6BBF8 /* DetailInfoView.swift in Sources */,
 				09556E3929F01B3200D6BBF8 /* PhotosViewController.swift in Sources */,
+				093EDB5D29F1144E00FA51C2 /* PhotosPresenterInputProtocol.swift in Sources */,
 				09556E3D29F01D8B00D6BBF8 /* PhotoCollectionViewCell.swift in Sources */,
+				093EDB6129F1147200FA51C2 /* DetailInfoPresenter.swift in Sources */,
+				093EDB7429F1198F00FA51C2 /* BaseRouter.swift in Sources */,
+				093EDB7229F1196300FA51C2 /* RouterProtocol.swift in Sources */,
+				093EDB5529F1141300FA51C2 /* LoginPresenter.swift in Sources */,
+				093EDB6F29F1190700FA51C2 /* DetailInfoModuleAssembly.swift in Sources */,
 				09556E3B29F01CFE00D6BBF8 /* PhotoCollectionView.swift in Sources */,
+				093EDB5B29F1144000FA51C2 /* PhotosPresenter.swift in Sources */,
+				093EDB5929F1143200FA51C2 /* LoginPresenterOutputProtocol.swift in Sources */,
+				093EDB6329F1148000FA51C2 /* DetailInfoPresenterInputProtocol.swift in Sources */,
+				093EDB5329F07D4300FA51C2 /* AuthViewController.swift in Sources */,
 				095F750329F00DD9009E4033 /* LoginViewController.swift in Sources */,
 				095F74E429EFFE09009E4033 /* AppDelegate.swift in Sources */,
 				09556E3F29F0295100D6BBF8 /* DetailInfoViewController.swift in Sources */,
+				093EDB5729F1142500FA51C2 /* LoginPresenterInputProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
