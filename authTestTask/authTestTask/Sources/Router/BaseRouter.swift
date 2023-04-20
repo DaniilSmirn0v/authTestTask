@@ -9,15 +9,18 @@ import UIKit
 
 final class BaseRouter: RouterProtocol {
 	
-	//MARK: - Properties
+	// MARK: - Properties
+	
 	private var navigationController: UINavigationController
 	
-	//MARK: - Initialize
+	// MARK: - Initialize
+	
 	init(navigationController: UINavigationController) {
 		self.navigationController = navigationController
 	}
 	
-	//MARK: - RouterProtocol methods
+	// MARK: - RouterProtocol methods
+	
 	func initialViewController() {
 		let loginViewController = LoginModuleAssembly.configureLoginModule(router: self)
 		navigationController.viewControllers = [loginViewController]

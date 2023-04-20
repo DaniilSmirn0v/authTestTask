@@ -8,7 +8,8 @@
 import UIKit
 
 class PhotoCollectionView: UIView {
-	//MARK: - Views
+	// MARK: - Views
+	
 	lazy var collectionView: UICollectionView = {
 		let collectionView = UICollectionView(frame: .zero, collectionViewLayout: setupCompositionalLayout())
 		collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +21,8 @@ class PhotoCollectionView: UIView {
 		return collectionView
 	}()
 	
-	//MARK: - Initialize
+	// MARK: - Initialize
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupHierarchy()
@@ -32,7 +34,8 @@ class PhotoCollectionView: UIView {
 	}
 }
 
-//MARK: - Layout methods
+// MARK: - Layout methods
+
 extension PhotoCollectionView {
 	
 	private func setupCompositionalLayout() -> UICollectionViewLayout {
@@ -68,4 +71,3 @@ extension PhotoCollectionView {
 		])
 	}
 }
-

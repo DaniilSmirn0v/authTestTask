@@ -9,10 +9,12 @@ import Foundation
 
 final class PhotosPresenter: PhotosPresenterInputProtocol {
 	// MARK: - Properties
+	
 	weak var view: PhotosPresenterOutputProtocol?
 	private let router: RouterProtocol
 	
 	// MARK: - Initialize
+	
 	init(router: RouterProtocol) {
 		self.router = router
 	}

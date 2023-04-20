@@ -9,15 +9,18 @@ import UIKit
 
 class DetailInfoViewController: UIViewController {
 	// MARK: - Views
-	private var detailInfoView: DetailInfoView! {
+	
+	private var detailInfoView: DetailInfoView? {
 		guard isViewLoaded else { return nil }
 		return view as? DetailInfoView
 	}
 	
 	// MARK: - Properties
+	
 	private var presenter: DetailInfoPresenterInputProtocol
 	
 	// MARK: - Initialize
+	
 	init(presenter: DetailInfoPresenterInputProtocol) {
 		self.presenter = presenter
 		super.init(nibName: nil, bundle: nil)
@@ -28,6 +31,7 @@ class DetailInfoViewController: UIViewController {
 	}
 	
 	// MARK: - LifeCycle
+	
 	override func loadView() {
 		view = DetailInfoView()
 	}
@@ -41,8 +45,8 @@ class DetailInfoViewController: UIViewController {
 
 extension DetailInfoViewController {
 	private func configureView() {
-		detailInfoView.collectionView.dataSource = self
-		detailInfoView.collectionView.delegate = self
+		detailInfoView?.collectionView.dataSource = self
+		detailInfoView?.collectionView.delegate = self
 		view.backgroundColor = .systemBackground
 	}
 	
@@ -93,16 +97,19 @@ extension DetailInfoViewController {
 }
 
 // MARK: - DetailInfoPresenterOutputProtocol
+
 extension DetailInfoViewController: DetailInfoPresenterOutputProtocol {
 	
 }
 
 // MARK: - UICollectionViewDelegate
+
 extension DetailInfoViewController: UICollectionViewDelegate {
 	
 }
 
 // MARK: - UICollectionViewDataSource
+
 extension DetailInfoViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		30

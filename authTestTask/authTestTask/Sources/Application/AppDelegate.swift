@@ -35,4 +35,3 @@ extension AppDelegate {
 		window.makeKeyAndVisible()
 	}
 }
-

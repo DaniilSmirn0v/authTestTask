@@ -9,9 +9,11 @@ import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
 	// MARK: - Properties
+	
 	static let reuseId = String(describing: PhotoCollectionViewCell.self)
 	
 	// MARK: - Views
+	
 	var photoImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +44,8 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 	}
 	
 	override func prepareForReuse() {
+		super.prepareForReuse()
+		
 		photoImageView.image = nil
 	}
 }
@@ -63,4 +67,3 @@ extension PhotoCollectionViewCell {
 		])
 	}
 }
-

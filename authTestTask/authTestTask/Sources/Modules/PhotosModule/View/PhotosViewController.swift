@@ -9,15 +9,18 @@ import UIKit
 
 class PhotosViewController: UIViewController {
 	// MARK: - Views
+	
 	private var photoView: PhotoCollectionView! {
 		guard isViewLoaded else { return nil }
 		return view as? PhotoCollectionView
 	}
 	
 	// MARK: - Properties
+	
 	private var presenter: PhotosPresenterInputProtocol
 	
 	// MARK: - Initialize
+	
 	init(presenter: PhotosPresenterInputProtocol) {
 		self.presenter = presenter
 		super.init(nibName: nil, bundle: nil)
@@ -27,8 +30,8 @@ class PhotosViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	
 	// MARK: - Life cycle
+	
 	override func loadView() {
 		view = PhotoCollectionView()
 	}
@@ -65,17 +68,18 @@ extension PhotosViewController {
 	}
 	
 	@objc func didTapExitButton() {
-		// TODO: - Relese exit
 		print("exit button tapped")
 	}
 }
 
 // MARK: - PhotosPresenterOutputProtocol
+
 extension PhotosViewController: PhotosPresenterOutputProtocol {
 	
 }
 
 // MARK: - UICollectionViewDelegate
+
 extension PhotosViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //		let vc = DetailInfoViewController()
@@ -84,18 +88,19 @@ extension PhotosViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDataSource
+
 extension PhotosViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		50
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reuseId, for: indexPath) as? PhotoCollectionViewCell else { return UICollectionViewCell() }
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reuseId,
+															for: indexPath)
+				as? PhotoCollectionViewCell else { return UICollectionViewCell() }
 		
 		cell.photoImageView.backgroundColor = .red
 		
 		return cell
 	}
-	
-	
 }

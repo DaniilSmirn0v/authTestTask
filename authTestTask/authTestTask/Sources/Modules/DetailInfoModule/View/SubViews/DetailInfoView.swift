@@ -9,6 +9,7 @@ import UIKit
 
 class DetailInfoView: UIView {
 	// MARK: - Views
+	
 	private let imageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +42,7 @@ class DetailInfoView: UIView {
 	}()
 	
 	// MARK: - Initialize
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupHierarchy()

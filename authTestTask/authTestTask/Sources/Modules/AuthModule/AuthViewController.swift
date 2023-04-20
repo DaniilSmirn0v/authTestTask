@@ -10,12 +10,15 @@ import WebKit
 
 class AuthViewController: UIViewController, WKUIDelegate {
 	// MARK: - Views
+	
 	private var webView: WKWebView!
 	
 	// MARK: - Properties
+	
 	private let urlString: String
 	
 	// MARK: - Initialize
+	
 	init(urlString: String) {
 		self.urlString = urlString
 		super.init(nibName: nil, bundle: nil)
@@ -25,6 +28,7 @@ class AuthViewController: UIViewController, WKUIDelegate {
 		fatalError("init(coder:) has not been implemented")
 	}
 	// MARK: - Life cycle
+	
 	override func loadView() {
 		let webConfig = WKWebViewConfiguration()
 		webView = WKWebView(frame: .zero, configuration: webConfig)
@@ -39,6 +43,7 @@ class AuthViewController: UIViewController, WKUIDelegate {
 	}
 	
 	// MARK: - Private methods
+	
 	private func setupWebView() {
 		guard let url = URL(string: urlString) else { return }
 		let request = URLRequest(url: url)
