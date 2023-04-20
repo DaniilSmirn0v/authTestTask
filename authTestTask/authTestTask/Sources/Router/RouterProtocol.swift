@@ -13,4 +13,5 @@ protocol RouterProtocol {
 	func displayPhotosViewController()
 	func pushToDetailInfoModule()
 	func popToRootViewController()
+	func logoutFromApp()
 }

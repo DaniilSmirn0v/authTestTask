@@ -20,4 +20,8 @@ final class PhotosPresenter: PhotosPresenterInputProtocol {
 	}
 	
 	// MARK: - PhotosPresenterInputProtocol API
+	
+	func exitButtonTapped() {
+		router.logoutFromApp()
+	}
 }

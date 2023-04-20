@@ -8,5 +8,5 @@
 import Foundation
 
 protocol PhotosPresenterInputProtocol {
-	
+	func exitButtonTapped()
 }

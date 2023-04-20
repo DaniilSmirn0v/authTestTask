@@ -6,35 +6,35 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
 final class BaseRouter: RouterProtocol {
 	
 	// MARK: - Properties
 	
 	private var navigationController: UINavigationController
+	private var authService: AuthServiceProtocol
 	
 	// MARK: - Initialize
 	
-	init(navigationController: UINavigationController) {
+	init(navigationController: UINavigationController, authService: AuthServiceProtocol) {
 		self.navigationController = navigationController
+		self.authService = authService
+		authService.delegate = self
 	}
 	
 	// MARK: - RouterProtocol methods
 	
 	func initialViewController() {
-		let loginViewController = LoginModuleAssembly.configureLoginModule(router: self)
-		navigationController.viewControllers = [loginViewController]
+		authInit()
 	}
 	
 	func presentAuthViewController() {
-		let authViewController = AuthViewController(urlString: "https://www.google.com/")
-		navigationController.present(authViewController, animated: true)
+		authService.authStart()
 	}
 	
 	func displayPhotosViewController() {
-		let photosViewController = PhotosModuleAssembly.configurePhotosModule(router: self)
-		//		let navigationController = UINavigationController(rootViewController: photosViewController)
-		self.navigationController.setViewControllers([photosViewController], animated: true)
+		authServiceDidFinish()
 	}
 	
 	func pushToDetailInfoModule() {
@@ -46,4 +46,56 @@ final class BaseRouter: RouterProtocol {
 		navigationController.popViewController(animated: true)
 	}
 	
+	func logoutFromApp() {
+		authService.authEndSession()
+	}
+}
+
+extension BaseRouter: AuthServiceDelegate {
+	func authInit() {
+		let loginViewController = LoginModuleAssembly.configureLoginModule(router: self)
+		navigationController.setViewControllers([loginViewController], animated: true)
+	}
+	
+	func authServiceShouldPresent(viewController: UIViewController) {
+		let authNavigationController = UINavigationController(rootViewController: viewController)
+		if let sheet = authNavigationController.sheetPresentationController {
+			sheet.detents = [.large()]
+		}
+		
+		navigationController.present(authNavigationController, animated: true)
+	}
+	
+	func authServiceDidFinish() {
+		let photosViewController = PhotosModuleAssembly.configurePhotosModule(router: self)
+		navigationController.setViewControllers([photosViewController], animated: true)
+	}
+	
+	func authServiceDidFail(with error: Error) {
+		let alertVC = UIAlertController(title: "Ошибошка", message: error.localizedDescription, preferredStyle: .alert)
+		
+		let okAction = UIAlertAction(title: "Окей", style: .default, handler: { [weak self] _ in
+			self?.authUserDidLogOut()
+		})
+		
+		alertVC.addAction(okAction)
+		
+		navigationController.present(alertVC, animated: true)
+	}
+	
+	func authUserDidLogOut() {
+		
+		let alertVC = UIAlertController(title: "Вы уверены, что хотите выйти?", message: nil, preferredStyle: .alert)
+		let exitAction = UIAlertAction(title: "Выйти", style: .destructive) { _ in
+			VKSdk.forceLogout()
+			let loginViewController = LoginModuleAssembly.configureLoginModule(router: self)
+			self.navigationController.setViewControllers([loginViewController], animated: true)
+		}
+		
+		let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+		alertVC.addAction(exitAction)
+		alertVC.addAction(cancelAction)
+		navigationController.present(alertVC, animated: true)
+		
+	}
 }

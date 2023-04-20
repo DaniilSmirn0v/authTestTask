@@ -68,7 +68,7 @@ extension PhotosViewController {
 	}
 	
 	@objc func didTapExitButton() {
-		print("exit button tapped")
+		presenter.exitButtonTapped()
 	}
 }
 
