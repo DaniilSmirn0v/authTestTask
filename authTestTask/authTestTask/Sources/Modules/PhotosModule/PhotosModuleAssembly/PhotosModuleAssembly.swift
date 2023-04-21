@@ -9,7 +9,8 @@ import UIKit
 
 final class PhotosModuleAssembly {
 	static func configurePhotosModule(router: RouterProtocol) -> UIViewController {
-		let presenter = PhotosPresenter(router: router)
+		let networkService = NetworkService()
+		let presenter = PhotosPresenter(router: router, networkService: networkService)
 		let view = PhotosViewController(presenter: presenter)
 		presenter.view = view
 		

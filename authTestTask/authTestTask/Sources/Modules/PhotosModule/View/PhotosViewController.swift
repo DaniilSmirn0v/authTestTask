@@ -40,6 +40,7 @@ class PhotosViewController: UIViewController {
 		super.viewDidLoad()
 		configureView()
 		configureNavigationBar()
+		presenter.fetchAlbumPhotos(completion: nil)
 	}
 }
 

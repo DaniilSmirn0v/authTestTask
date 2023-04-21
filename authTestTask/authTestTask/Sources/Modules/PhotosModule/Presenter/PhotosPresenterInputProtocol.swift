@@ -8,5 +8,6 @@
 import Foundation
 
 protocol PhotosPresenterInputProtocol {
+	func fetchAlbumPhotos(completion: (Void)?)
 	func exitButtonTapped()
 }
