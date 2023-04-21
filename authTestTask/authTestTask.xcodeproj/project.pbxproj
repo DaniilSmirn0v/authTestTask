@@ -34,6 +34,15 @@
 		095F750329F00DD9009E4033 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095F750229F00DD9009E4033 /* LoginViewController.swift */; };
 		095F750A29F018C4009E4033 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 095F750629F016C6009E4033 /* SF-Pro-Text-Regular.otf */; };
 		0983D61029F17C88001AE664 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D60F29F17C88001AE664 /* AuthServiceProtocol.swift */; };
+		0983D61329F19A1C001AE664 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D61229F19A1C001AE664 /* NetworkError.swift */; };
+		0983D61529F19D29001AE664 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D61429F19D29001AE664 /* RequestType.swift */; };
+		0983D61729F19E0F001AE664 /* URLFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D61629F19E0F001AE664 /* URLFactoryProtocol.swift */; };
+		0983D61929F19E6F001AE664 /* DefaultURLFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D61829F19E6F001AE664 /* DefaultURLFactory.swift */; };
+		0983D61B29F19FB5001AE664 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D61A29F19FB5001AE664 /* RequestFactory.swift */; };
+		0983D61D29F1A17D001AE664 /* FetchAlbumPhotosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D61C29F1A17D001AE664 /* FetchAlbumPhotosAPI.swift */; };
+		0983D61F29F26B8A001AE664 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D61E29F26B8A001AE664 /* NetworkService.swift */; };
+		0983D62129F26B9F001AE664 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D62029F26B9F001AE664 /* NetworkServiceProtocol.swift */; };
+		0983D62329F270AD001AE664 /* PhotosData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0983D62229F270AD001AE664 /* PhotosData.swift */; };
 		B77655E25D84D304C9E86CEE /* Pods_authTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5568A1827FCA31B67285F64 /* Pods_authTestTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +77,15 @@
 		095F750229F00DD9009E4033 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		095F750629F016C6009E4033 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Text-Regular.otf"; path = "../../../../../../../Library/Fonts/SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		0983D60F29F17C88001AE664 /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
+		0983D61229F19A1C001AE664 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		0983D61429F19D29001AE664 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		0983D61629F19E0F001AE664 /* URLFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLFactoryProtocol.swift; sourceTree = "<group>"; };
+		0983D61829F19E6F001AE664 /* DefaultURLFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultURLFactory.swift; sourceTree = "<group>"; };
+		0983D61A29F19FB5001AE664 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		0983D61C29F1A17D001AE664 /* FetchAlbumPhotosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAlbumPhotosAPI.swift; sourceTree = "<group>"; };
+		0983D61E29F26B8A001AE664 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0983D62029F26B9F001AE664 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		0983D62229F270AD001AE664 /* PhotosData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosData.swift; sourceTree = "<group>"; };
 		E1E1E0100D663FE5DFE2C0B1 /* Pods-authTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-authTestTask.release.xcconfig"; path = "Target Support Files/Pods-authTestTask/Pods-authTestTask.release.xcconfig"; sourceTree = "<group>"; };
 		E5568A1827FCA31B67285F64 /* Pods_authTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_authTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -279,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				0942FD7629F14A2F008E720A /* AuthService */,
+				0983D61129F199C6001AE664 /* NetworkService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -319,6 +338,22 @@
 				093EDB6829F114BF00FA51C2 /* Presenter */,
 			);
 			path = DetailInfoModule;
+			sourceTree = "<group>";
+		};
+		0983D61129F199C6001AE664 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				0983D61229F19A1C001AE664 /* NetworkError.swift */,
+				0983D61429F19D29001AE664 /* RequestType.swift */,
+				0983D61629F19E0F001AE664 /* URLFactoryProtocol.swift */,
+				0983D61829F19E6F001AE664 /* DefaultURLFactory.swift */,
+				0983D61A29F19FB5001AE664 /* RequestFactory.swift */,
+				0983D61E29F26B8A001AE664 /* NetworkService.swift */,
+				0983D62229F270AD001AE664 /* PhotosData.swift */,
+				0983D62029F26B9F001AE664 /* NetworkServiceProtocol.swift */,
+				0983D61C29F1A17D001AE664 /* FetchAlbumPhotosAPI.swift */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 		2D459BA60EB96FBC08E35869 /* Frameworks */ = {
@@ -476,17 +511,24 @@
 			files = (
 				093EDB6529F1148F00FA51C2 /* DetailInfoPresenterOutputProtocol.swift in Sources */,
 				0942FD7829F14A47008E720A /* AuthService.swift in Sources */,
+				0983D62329F270AD001AE664 /* PhotosData.swift in Sources */,
 				093EDB7A29F11B0300FA51C2 /* LoginModuleAssembly.swift in Sources */,
 				093EDB5F29F1146300FA51C2 /* PhotosPresenterOutputProtocol.swift in Sources */,
+				0983D61929F19E6F001AE664 /* DefaultURLFactory.swift in Sources */,
 				093EDB7729F11A1B00FA51C2 /* PhotosModuleAssembly.swift in Sources */,
 				09556E4129F02AA800D6BBF8 /* DetailInfoView.swift in Sources */,
+				0983D61729F19E0F001AE664 /* URLFactoryProtocol.swift in Sources */,
 				09556E3929F01B3200D6BBF8 /* PhotosViewController.swift in Sources */,
 				093EDB5D29F1144E00FA51C2 /* PhotosPresenterInputProtocol.swift in Sources */,
+				0983D61F29F26B8A001AE664 /* NetworkService.swift in Sources */,
 				0983D61029F17C88001AE664 /* AuthServiceProtocol.swift in Sources */,
+				0983D61529F19D29001AE664 /* RequestType.swift in Sources */,
+				0983D61329F19A1C001AE664 /* NetworkError.swift in Sources */,
 				09556E3D29F01D8B00D6BBF8 /* PhotoCollectionViewCell.swift in Sources */,
 				093EDB6129F1147200FA51C2 /* DetailInfoPresenter.swift in Sources */,
 				093EDB7429F1198F00FA51C2 /* BaseRouter.swift in Sources */,
 				093EDB7229F1196300FA51C2 /* RouterProtocol.swift in Sources */,
+				0983D61D29F1A17D001AE664 /* FetchAlbumPhotosAPI.swift in Sources */,
 				093EDB5529F1141300FA51C2 /* LoginPresenter.swift in Sources */,
 				093EDB6F29F1190700FA51C2 /* DetailInfoModuleAssembly.swift in Sources */,
 				09556E3B29F01CFE00D6BBF8 /* PhotoCollectionView.swift in Sources */,
@@ -494,6 +536,8 @@
 				093EDB5929F1143200FA51C2 /* LoginPresenterOutputProtocol.swift in Sources */,
 				093EDB6329F1148000FA51C2 /* DetailInfoPresenterInputProtocol.swift in Sources */,
 				095F750329F00DD9009E4033 /* LoginViewController.swift in Sources */,
+				0983D62129F26B9F001AE664 /* NetworkServiceProtocol.swift in Sources */,
+				0983D61B29F19FB5001AE664 /* RequestFactory.swift in Sources */,
 				095F74E429EFFE09009E4033 /* AppDelegate.swift in Sources */,
 				09556E3F29F0295100D6BBF8 /* DetailInfoViewController.swift in Sources */,
 				093EDB5729F1142500FA51C2 /* LoginPresenterInputProtocol.swift in Sources */,

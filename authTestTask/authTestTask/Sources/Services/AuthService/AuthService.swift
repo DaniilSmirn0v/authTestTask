@@ -23,6 +23,7 @@ class AuthService: NSObject, AuthServiceProtocol {
 	private let appId = "51619721"
 	private let scope = ["offline"]
 	private let vkSdk: VKSdk
+	
 	weak var delegate: AuthServiceDelegate?
 	
 	// MARK: - Initialize

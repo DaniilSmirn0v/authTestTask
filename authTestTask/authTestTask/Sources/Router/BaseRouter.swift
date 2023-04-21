@@ -74,9 +74,7 @@ extension BaseRouter: AuthServiceDelegate {
 	func authServiceDidFail(with error: Error) {
 		let alertVC = UIAlertController(title: "Ошибошка", message: error.localizedDescription, preferredStyle: .alert)
 		
-		let okAction = UIAlertAction(title: "Окей", style: .default, handler: { [weak self] _ in
-			self?.authUserDidLogOut()
-		})
+		let okAction = UIAlertAction(title: "Окей", style: .default)
 		
 		alertVC.addAction(okAction)
 		
@@ -93,8 +91,9 @@ extension BaseRouter: AuthServiceDelegate {
 		}
 		
 		let cancelAction = UIAlertAction(title: "Отмена", style: .default)
-		alertVC.addAction(exitAction)
-		alertVC.addAction(cancelAction)
+		
+		[exitAction, cancelAction].forEach { alertVC.addAction($0) }
+		
 		navigationController.present(alertVC, animated: true)
 		
 	}
