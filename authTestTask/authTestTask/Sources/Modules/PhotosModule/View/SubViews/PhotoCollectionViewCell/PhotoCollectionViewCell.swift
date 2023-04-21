@@ -7,10 +7,12 @@
 
 import UIKit
 
-class PhotoCollectionViewCell: UICollectionViewCell {
+class PhotoCollectionViewCell: BaseCollectionViewCell {
 	// MARK: - Properties
 	
 	static let reuseId = String(describing: PhotoCollectionViewCell.self)
+	private var imageUrl: String?
+	private let imageLoader = ImageLoader.shared
 	
 	// MARK: - Views
 	
@@ -19,7 +21,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		imageView.clipsToBounds = true
 		imageView.contentMode = .scaleAspectFill
-		imageView.backgroundColor = .orange
+		imageView.backgroundColor = .systemGray
 		
 		return imageView
 	}()
@@ -45,8 +47,15 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 	
 	override func prepareForReuse() {
 		super.prepareForReuse()
-		
+		imageUrl = nil
 		photoImageView.image = nil
+	}
+	
+	override func configure(with model: CellIdentifiable?) {
+		activityIndicatorView.startAnimating()
+		guard let viewModel = model as? PhotoCollectionCellViewModel else { return }
+		self.imageUrl = viewModel.image
+		downloadImage(urlString: imageUrl ?? "")
 	}
 }
 
@@ -65,5 +74,22 @@ extension PhotoCollectionViewCell {
 			activityIndicatorView.centerXAnchor.constraint(equalTo: centerXAnchor),
 			activityIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor)
 		])
+	}
+	
+	private func downloadImage(urlString: String) {
+		imageLoader.getImage(from: urlString) { image in
+			DispatchQueue.main.async { [weak self] in
+				guard let self = self,
+					  self.imageUrl == urlString else {
+					return
+				}
+				
+				self.photoImageView.image = image
+				
+				if self.photoImageView.image != nil {
+					self.activityIndicatorView.stopAnimating()
+				}
+			}
+		}
 	}
 }

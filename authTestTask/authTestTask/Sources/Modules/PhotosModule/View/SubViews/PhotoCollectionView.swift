@@ -65,7 +65,7 @@ extension PhotoCollectionView {
 	private func setupLayout() {
 		NSLayoutConstraint.activate([
 			collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-			collectionView.topAnchor.constraint(equalTo: topAnchor),
+			collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
 			collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
 			collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
 		])

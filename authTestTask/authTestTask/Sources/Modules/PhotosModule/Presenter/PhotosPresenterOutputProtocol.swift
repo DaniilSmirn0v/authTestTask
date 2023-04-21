@@ -8,5 +8,5 @@
 import Foundation
 
 protocol PhotosPresenterOutputProtocol: AnyObject {
-	
+	func configureView(with viewModels: [PhotoCollectionCellViewModel]) 
 }

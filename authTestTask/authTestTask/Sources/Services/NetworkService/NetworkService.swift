@@ -27,7 +27,7 @@ final class NetworkService: NetworkServiceProtocol {
 	
 	// MARK: - NetworkClientProtocol
 	
-	func fetchPhotoAlbumData(request: RequestType, completion: @escaping (Result<Response, NetworkError>) -> Void) {
+	func fetchPhotoAlbumData(request: RequestType, completion: @escaping (Result<ResponsePhotos, NetworkError>) -> Void) {
 		perform(request: request, completion: completion)
 	}
 }

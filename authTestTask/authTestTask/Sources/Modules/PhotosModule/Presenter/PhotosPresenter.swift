@@ -29,7 +29,7 @@ final class PhotosPresenter: PhotosPresenterInputProtocol {
 			guard let self = self else { return }
 			switch result {
 			case .success(let data):
-				print(data.response.items.count)
+				self.prepareDataToConfigureCell(response: data)
 			case .failure(let error):
 				print(error.localizedDescription)
 			}
@@ -38,5 +38,16 @@ final class PhotosPresenter: PhotosPresenterInputProtocol {
 	
 	func exitButtonTapped() {
 		router.logoutFromApp()
+	}
+}
+
+// MARK: - Private methods
+
+extension PhotosPresenter {
+	private func prepareDataToConfigureCell(response: ResponsePhotos) {
+		let cellViewModels: [PhotoCollectionCellViewModel] = response.response.items.map {
+			return PhotoCollectionCellViewModel(image: $0.sizes.last?.url ?? "")
+		}
+		view?.configureView(with: cellViewModels)
 	}
 }

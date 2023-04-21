@@ -1,5 +1,5 @@
 //
-//  PhotosData.swift
+//  ResponsePhotos.swift
 //  authTestTask
 //
 //  Created by Daniil on 21.04.2023.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Response: Decodable {
+struct ResponsePhotos: Decodable {
 	let response: PhotosData
 }
 struct PhotosData: Decodable {

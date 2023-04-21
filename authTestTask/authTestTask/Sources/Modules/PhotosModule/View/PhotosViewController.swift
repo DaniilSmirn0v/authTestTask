@@ -18,6 +18,7 @@ class PhotosViewController: UIViewController {
 	// MARK: - Properties
 	
 	private var presenter: PhotosPresenterInputProtocol
+	private var cellViewModels: [CellIdentifiable] = []
 	
 	// MARK: - Initialize
 	
@@ -76,7 +77,12 @@ extension PhotosViewController {
 // MARK: - PhotosPresenterOutputProtocol
 
 extension PhotosViewController: PhotosPresenterOutputProtocol {
-	
+	func configureView(with viewModels: [PhotoCollectionCellViewModel]) {
+		cellViewModels = viewModels
+		DispatchQueue.main.async {
+			self.photoView.collectionView.reloadData()
+		}
+	}
 }
 
 // MARK: - UICollectionViewDelegate
@@ -92,7 +98,7 @@ extension PhotosViewController: UICollectionViewDelegate {
 
 extension PhotosViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		50
+		cellViewModels.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -100,7 +106,9 @@ extension PhotosViewController: UICollectionViewDataSource {
 															for: indexPath)
 				as? PhotoCollectionViewCell else { return UICollectionViewCell() }
 		
-		cell.photoImageView.backgroundColor = .red
+		let viewModel = cellViewModels[indexPath.item]
+		
+		cell.configure(with: viewModel)
 		
 		return cell
 	}
