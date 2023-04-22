@@ -8,8 +8,14 @@
 import UIKit
 
 final class DetailInfoModuleAssembly {
-	static func configureDetailInfoModule(router: RouterProtocol) -> UIViewController {
-		let presenter = DetailInfoPresenter(router: router)
+	static func configureDetailInfoModule(with currentViewModelIndex: Int,
+										  viewModels: [ViewModel],
+										  router: RouterProtocol) -> UIViewController {
+		
+		let presenter = DetailInfoPresenter(router: router,
+											currentViewModelIndex: currentViewModelIndex,
+											viewModels: viewModels)
+		
 		let view = DetailInfoViewController(presenter: presenter)
 		presenter.view = view
 		

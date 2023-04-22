@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController {
+final class PhotosViewController: UIViewController {
 	// MARK: - Views
 	
 	private var photoView: PhotoCollectionView! {
@@ -41,9 +41,11 @@ class PhotosViewController: UIViewController {
 		super.viewDidLoad()
 		configureView()
 		configureNavigationBar()
-		presenter.fetchAlbumPhotos(completion: nil)
+		presenter.fetchAlbumPhotos()
 	}
 }
+
+// MARK: - Configure view private methods.
 
 extension PhotosViewController {
 	private func configureView() {
@@ -69,7 +71,7 @@ extension PhotosViewController {
 		)
 	}
 	
-	@objc func didTapExitButton() {
+	@objc private func didTapExitButton() {
 		presenter.exitButtonTapped()
 	}
 }
@@ -77,11 +79,22 @@ extension PhotosViewController {
 // MARK: - PhotosPresenterOutputProtocol
 
 extension PhotosViewController: PhotosPresenterOutputProtocol {
-	func configureView(with viewModels: [PhotoCollectionCellViewModel]) {
+	
+	func configureView(with viewModels: [CellIdentifiable]) {
 		cellViewModels = viewModels
 		DispatchQueue.main.async {
 			self.photoView.collectionView.reloadData()
 		}
+	}
+	
+	func configureViewError(_ error: String) {
+		let okAction = UIAlertAction(title: "Ок", style: .default)
+		showAlert(title: "Ошибошка", message: error, actions: [okAction])
+	}
+	
+	func didSelectImage(with currentViewModelIndex: Int) {
+		guard let cellViewModels = cellViewModels as? [ViewModel] else { return }
+		presenter.pushToDetailInfoViewController(with: currentViewModelIndex, viewModels: cellViewModels)
 	}
 }
 
@@ -89,8 +102,8 @@ extension PhotosViewController: PhotosPresenterOutputProtocol {
 
 extension PhotosViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//		let vc = DetailInfoViewController()
-//		navigationController?.pushViewController(vc, animated: true)
+		let index = indexPath.item
+		didSelectImage(with: index)
 	}
 }
 

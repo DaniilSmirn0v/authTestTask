@@ -7,17 +7,22 @@
 
 import UIKit
 
-class DetailInfoViewController: UIViewController {
+final class DetailInfoViewController: UIViewController {
+	
 	// MARK: - Views
 	
-	private var detailInfoView: DetailInfoView? {
+	private var detailInfoView: DetailInfoView! {
 		guard isViewLoaded else { return nil }
 		return view as? DetailInfoView
 	}
 	
 	// MARK: - Properties
 	
-	private var presenter: DetailInfoPresenterInputProtocol
+	private let presenter: DetailInfoPresenterInputProtocol
+	private var cellViewModels: [ViewModel] = []
+	private var selectedCellIndex: Int {
+		presenter.currentIndex()
+	}
 	
 	// MARK: - Initialize
 	
@@ -40,14 +45,73 @@ class DetailInfoViewController: UIViewController {
 		super.viewDidLoad()
 		configureView()
 		configureNavigationBar()
+		configureSwipeGestures()
+		presenter.configureViewWithCurrentViewModel()
 	}
 }
 
+// MARK: - Configure View Methods
+
 extension DetailInfoViewController {
 	private func configureView() {
-		detailInfoView?.collectionView.dataSource = self
-		detailInfoView?.collectionView.delegate = self
+		detailInfoView.bottomCollectionView.dataSource = self
+		detailInfoView.bottomCollectionView.delegate = self
 		view.backgroundColor = .systemBackground
+	}
+	
+	private func configureSwipeGestures() {
+		let leftSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
+		leftSwipeRecognizer.direction = .left
+		
+		let rightSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture))
+		rightSwipeRecognizer.direction = .right
+		
+		let bottomSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didTapBackButton))
+		bottomSwipeRecognizer.direction = .down
+		
+		let zoomGesture = UIPinchGestureRecognizer(target: self, action: #selector(zoomImage(_:)))
+		
+		detailInfoView.scrollView.addGestureRecognizer(leftSwipeRecognizer)
+		detailInfoView.scrollView.addGestureRecognizer(rightSwipeRecognizer)
+		detailInfoView.scrollView.addGestureRecognizer(bottomSwipeRecognizer)
+		detailInfoView.imageView.addGestureRecognizer(zoomGesture)
+
+	}
+	
+	@objc private func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
+		if gesture.direction == .left {
+			presenter.nextImageData()
+		} else if gesture.direction == .right {
+			presenter.prevImageData()
+		}
+		scrollToVisiblesCells()
+	}
+	
+	@objc func zoomImage(_ gesture: UIPinchGestureRecognizer) {
+		if gesture.state == .changed {
+			let currentScale = gesture.scale
+			let maxScale: CGFloat = 2.0
+			let minScale: CGFloat = 0.5
+			let scaledTransform = CGAffineTransform(scaleX: currentScale, y: currentScale)
+			let limitedTransform = scaledTransform.scaledBy(x: max(minScale, min(maxScale, currentScale)),
+															y: max(minScale, min(maxScale, currentScale)))
+			UIView.animate(withDuration: 0.2) {
+				self.detailInfoView.imageView.transform = limitedTransform
+			}
+			
+		} else if gesture.state == .ended {
+			if gesture.scale < 1.0 {
+				UIView.animate(withDuration: 0.2) {
+					self.detailInfoView.imageView.transform = CGAffineTransform.identity
+				}
+			}
+		}
+	}
+	
+	private func scrollToVisiblesCells() {
+		let index = presenter.currentIndex()
+		let indexPath = IndexPath(item: index, section: 0)
+		detailInfoView.bottomCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 	}
 	
 	private func configureNavigationBar() {
@@ -73,52 +137,91 @@ extension DetailInfoViewController {
 	}
 	
 	@objc private func didTapBackButton() {
-		navigationController?.popViewController(animated: true)
+		presenter.popToPhotosViewController()
 	}
 	
 	@objc private func didTapShareButton() {
-		let actionSheetMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		guard let cellImage = detailInfoView.imageView.image else { return }
 		
-		let saveAction = UIAlertAction(title: "Сохранить", style: .default) { _ in
-			print("saved")
+		let shareViewController = UIActivityViewController(activityItems: [cellImage],
+														   applicationActivities: nil)
+		
+		shareViewController.completionWithItemsHandler = { [weak self] _, success, _, error in
+			guard let self = self else { return }
+			
+			let okAction = UIAlertAction(title: "Ок", style: .default)
+			
+			if let error = error {
+				self.showAlert(title: "Ошибочка", message: error.localizedDescription, actions: [okAction])
+			}
+			
+			if success {
+				let successImageString = "doneIcon"
+				let okAction = UIAlertAction(title: "Ок", style: .default)
+				self.showImageAlert(title: "Успешный успех",
+									message: "\n\n\n",
+									actions: [okAction],
+									alertImage: successImageString)
+			}
+			
 		}
 		
-		let shareAction = UIAlertAction(title: "Поделиться", style: .default) { _ in
-			print("shared")
-		}
-		let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-		
-		actionSheetMenu.addAction(shareAction)
-		actionSheetMenu.addAction(saveAction)
-		actionSheetMenu.addAction(cancelAction)
-		
-		present(actionSheetMenu, animated: true)
+		present(shareViewController, animated: true)
 	}
+	
 }
 
 // MARK: - DetailInfoPresenterOutputProtocol
 
 extension DetailInfoViewController: DetailInfoPresenterOutputProtocol {
+	func configureView(with viewModel: ViewModel) {
+		guard let vm = viewModel as? PhotoCollectionCellViewModel else { return }
+		title = vm.date
+		detailInfoView.configureView(with: viewModel)
+	}
 	
-}
-
-// MARK: - UICollectionViewDelegate
-
-extension DetailInfoViewController: UICollectionViewDelegate {
+	func configureCollectionView(with viewModels: [ViewModel]) {
+		cellViewModels = viewModels
+		DispatchQueue.main.async {
+			let indexPath = IndexPath(item: self.selectedCellIndex, section: 0)
+			self.detailInfoView.bottomCollectionView.scrollToItem(at: indexPath,
+																  at: .centeredHorizontally,
+																  animated: true)
+			self.detailInfoView.bottomCollectionView.reloadData()
+		}
+	}
 	
+	func didSelectCell(with index: Int) {
+		presenter.updateCurrentPhoto(index: index)
+	}
 }
 
 // MARK: - UICollectionViewDataSource
 
 extension DetailInfoViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		30
+		cellViewModels.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reuseId, for: indexPath)
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reuseId,
+															for: indexPath)
 				as? PhotoCollectionViewCell else { return UICollectionViewCell() }
 		
+		guard let viewModel = cellViewModels[indexPath.item] as? CellIdentifiable else { return UICollectionViewCell() }
+		
+		cell.configure(with: viewModel)
+
 		return cell
+	}
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension DetailInfoViewController: UICollectionViewDelegate {
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let index = indexPath.item
+		didSelectCell(with: index)
+		collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 	}
 }

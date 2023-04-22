@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
 	
 	// MARK: - Views
 	
@@ -53,7 +53,6 @@ class LoginViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		view.backgroundColor = .red
 		configureView()
 		setupHierarchy()
 		setupLayout()
@@ -80,7 +79,6 @@ extension LoginViewController {
 			loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -42),
 			loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
 			loginButton.heightAnchor.constraint(equalToConstant: 52)
-		
 		])
 	}
 	
@@ -92,5 +90,4 @@ extension LoginViewController {
 // MARK: - LoginPresenterOutputProtocol
 
 extension LoginViewController: LoginPresenterOutputProtocol {
-	
 }

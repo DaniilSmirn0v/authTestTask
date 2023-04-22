@@ -27,13 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		return true
 	}
-	
 }
 
 extension AppDelegate {
 	private func setup(_ window: UIWindow) {
-		
 		let navigationController = UINavigationController()
+		
 		let authService = AuthService()
 		authService.wakeUpSession()
 		

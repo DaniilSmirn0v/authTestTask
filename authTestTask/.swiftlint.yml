@@ -12,6 +12,7 @@ analyzer_rules:
 
 disabled_rules:
   - trailing_whitespace
+  - vertical_parameter_alignment
   - todo
   - cyclomatic_complexity
   - function_body_length

@@ -11,7 +11,7 @@ protocol RouterProtocol {
 	func initialViewController()
 	func presentAuthViewController()
 	func displayPhotosViewController()
-	func pushToDetailInfoModule()
+	func pushToDetailInfoModule(with currentViewModelIndex: Int, viewModels: [ViewModel])
 	func popToRootViewController()
 	func logoutFromApp()
 }

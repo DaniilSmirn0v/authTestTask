@@ -7,7 +7,8 @@
 
 import UIKit
 
-class PhotoCollectionView: UIView {
+final class PhotoCollectionView: UIView {
+	
 	// MARK: - Views
 	
 	lazy var collectionView: UICollectionView = {
@@ -34,7 +35,7 @@ class PhotoCollectionView: UIView {
 	}
 }
 
-// MARK: - Layout methods
+// MARK: - Configure view methods
 
 extension PhotoCollectionView {
 	

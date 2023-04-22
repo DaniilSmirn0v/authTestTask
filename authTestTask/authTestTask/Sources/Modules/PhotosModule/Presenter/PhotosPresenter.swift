@@ -8,6 +8,7 @@
 import Foundation
 
 final class PhotosPresenter: PhotosPresenterInputProtocol {
+	
 	// MARK: - Properties
 	
 	weak var view: PhotosPresenterOutputProtocol?
@@ -23,21 +24,26 @@ final class PhotosPresenter: PhotosPresenterInputProtocol {
 	
 	// MARK: - PhotosPresenterInputProtocol API
 	
-	func fetchAlbumPhotos(completion: (Void)?) {
+	func fetchAlbumPhotos() {
 		let requestType = FetchAlbumPhotosAPI.fetchAlbumData
 		networkService.fetchPhotoAlbumData(request: requestType) { [weak self] result in
 			guard let self = self else { return }
+			
 			switch result {
 			case .success(let data):
 				self.prepareDataToConfigureCell(response: data)
 			case .failure(let error):
-				print(error.localizedDescription)
+				self.prepareErrorToConfigureView(error: error)
 			}
 		}
 	}
 	
 	func exitButtonTapped() {
 		router.logoutFromApp()
+	}
+	
+	func pushToDetailInfoViewController(with currentViewModelIndex: Int, viewModels: [ViewModel]) {
+		router.pushToDetailInfoModule(with: currentViewModelIndex, viewModels: viewModels)
 	}
 }
 
@@ -46,8 +52,25 @@ final class PhotosPresenter: PhotosPresenterInputProtocol {
 extension PhotosPresenter {
 	private func prepareDataToConfigureCell(response: ResponsePhotos) {
 		let cellViewModels: [PhotoCollectionCellViewModel] = response.response.items.map {
-			return PhotoCollectionCellViewModel(image: $0.sizes.last?.url ?? "")
+			return PhotoCollectionCellViewModel(id: $0.id,
+												date: formatted($0.date),
+												image: $0.sizes.last?.url ?? "")
 		}
+		
 		view?.configureView(with: cellViewModels)
+	}
+	
+	private func prepareErrorToConfigureView(error: Error) {
+		guard let error = error as? NetworkError else { return }
+		view?.configureViewError(error.errorDescription)
+	}
+	
+	private func formatted(_ date: Int) -> String {
+		let currentDate = Date(timeIntervalSince1970: Double(date))
+		let formatter = DateFormatter()
+		formatter.locale = .current
+		formatter.dateFormat = "d MMMM yyyy"
+		
+		return formatter.string(from: currentDate)
 	}
 }

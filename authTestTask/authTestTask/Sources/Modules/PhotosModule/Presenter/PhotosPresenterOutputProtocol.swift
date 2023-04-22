@@ -8,5 +8,7 @@
 import Foundation
 
 protocol PhotosPresenterOutputProtocol: AnyObject {
-	func configureView(with viewModels: [PhotoCollectionCellViewModel]) 
+	func configureView(with viewModels: [CellIdentifiable])
+	func configureViewError(_ error: String)
+	func didSelectImage(with currentViewModelIndex: Int)
 }
