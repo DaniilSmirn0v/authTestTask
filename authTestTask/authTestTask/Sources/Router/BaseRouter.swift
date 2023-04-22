@@ -37,8 +37,10 @@ final class BaseRouter: RouterProtocol {
 		authServiceDidFinish()
 	}
 	
-	func pushToDetailInfoModule() {
-		let detailInfoViewController = DetailInfoModuleAssembly.configureDetailInfoModule(router: self)
+	func pushToDetailInfoModule(with currentViewModelIndex: Int, viewModels: [ViewModel]) {
+		let detailInfoViewController = DetailInfoModuleAssembly.configureDetailInfoModule(with: currentViewModelIndex,
+																						  viewModels: viewModels,
+																						  router: self)
 		navigationController.pushViewController(detailInfoViewController, animated: true)
 	}
 	
@@ -50,6 +52,8 @@ final class BaseRouter: RouterProtocol {
 		authService.authEndSession()
 	}
 }
+
+// MARK: - AuthServiceDelegate
 
 extension BaseRouter: AuthServiceDelegate {
 	func authInit() {
@@ -95,6 +99,5 @@ extension BaseRouter: AuthServiceDelegate {
 		[exitAction, cancelAction].forEach { alertVC.addAction($0) }
 		
 		navigationController.present(alertVC, animated: true)
-		
 	}
 }
