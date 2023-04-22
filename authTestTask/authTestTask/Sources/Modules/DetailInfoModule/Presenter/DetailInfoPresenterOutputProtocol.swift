@@ -8,5 +8,7 @@
 import Foundation
 
 protocol DetailInfoPresenterOutputProtocol: AnyObject {
-	
+	func configureView(with viewModel: ViewModel)
+	func configureCollectionView(with viewModels: [ViewModel])
+	func didSelectCell(with index: Int)
 }

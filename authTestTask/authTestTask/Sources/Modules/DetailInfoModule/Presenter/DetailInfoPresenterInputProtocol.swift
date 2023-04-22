@@ -8,5 +8,10 @@
 import Foundation
 
 protocol DetailInfoPresenterInputProtocol {
-	
+	func prevImageData()
+	func nextImageData()
+	func configureViewWithCurrentViewModel()
+	func updateCurrentPhoto(index: Int)
+	func currentIndex() -> Int
+	func popToPhotosViewController()
 }
