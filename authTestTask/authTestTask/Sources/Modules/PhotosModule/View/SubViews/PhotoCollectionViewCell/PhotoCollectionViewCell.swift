@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotoCollectionViewCell: BaseCollectionViewCell {
+final class PhotoCollectionViewCell: BaseCollectionViewCell {
 	// MARK: - Properties
 	
 	static let reuseId = String(describing: PhotoCollectionViewCell.self)
@@ -16,7 +16,7 @@ class PhotoCollectionViewCell: BaseCollectionViewCell {
 	
 	// MARK: - Views
 	
-	var photoImageView: UIImageView = {
+	private var photoImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		imageView.clipsToBounds = true
@@ -26,14 +26,16 @@ class PhotoCollectionViewCell: BaseCollectionViewCell {
 		return imageView
 	}()
 	
-	var activityIndicatorView: UIActivityIndicatorView = {
+	private var activityIndicatorView: UIActivityIndicatorView = {
 		let activityIndicatorView = UIActivityIndicatorView(style: .medium)
 		activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
-		activityIndicatorView.color = .black
+		activityIndicatorView.color = .systemBackground
 		activityIndicatorView.hidesWhenStopped = true
 		
 		return activityIndicatorView
 	}()
+	
+	// MARK: - Initialize
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -45,11 +47,15 @@ class PhotoCollectionViewCell: BaseCollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	// MARK: - prepareForReuse()
+	
 	override func prepareForReuse() {
 		super.prepareForReuse()
 		imageUrl = nil
 		photoImageView.image = nil
 	}
+	
+	// MARK: - BaseCollectionViewCell API
 	
 	override func configure(with model: CellIdentifiable?) {
 		activityIndicatorView.startAnimating()
@@ -58,6 +64,8 @@ class PhotoCollectionViewCell: BaseCollectionViewCell {
 		downloadImage(urlString: imageUrl ?? "")
 	}
 }
+
+// MARK: - Configure view private methods
 
 extension PhotoCollectionViewCell {
 	private func setupHierarchy() {

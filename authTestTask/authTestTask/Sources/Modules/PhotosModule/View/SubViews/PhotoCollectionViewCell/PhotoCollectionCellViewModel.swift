@@ -7,16 +7,20 @@
 
 import Foundation
 
-class PhotoCollectionCellViewModel: CellIdentifiable {
+final class PhotoCollectionCellViewModel: CellIdentifiable, ViewModel {
 	
 	// MARK: - Properties
 	
 	var cellIdentifier = String(describing: PhotoCollectionCellViewModel.self)
+	let id: Int
+	let date: String
 	let image: String
 	
 	// MARK: - Initialize
 	
-	init(image: String) {
+	init(id: Int, date: String, image: String) {
+		self.id = id
+		self.date = date
 		self.image = image
 	}
 }

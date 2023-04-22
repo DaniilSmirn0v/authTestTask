@@ -8,6 +8,8 @@
 import Foundation
 
 protocol PhotosPresenterInputProtocol {
-	func fetchAlbumPhotos(completion: (Void)?)
+	func fetchAlbumPhotos()
 	func exitButtonTapped()
+	func pushToDetailInfoViewController(with currentViewModelIndex: Int,
+										viewModels: [ViewModel])
 }
