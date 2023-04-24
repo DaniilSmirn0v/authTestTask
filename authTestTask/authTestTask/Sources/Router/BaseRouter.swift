@@ -76,9 +76,10 @@ extension BaseRouter: AuthServiceDelegate {
 	}
 	
 	func authServiceDidFail(with error: Error) {
-		let alertVC = UIAlertController(title: "Ошибошка", message: error.localizedDescription, preferredStyle: .alert)
 		
-		let okAction = UIAlertAction(title: "Окей", style: .default)
+		let alertVC = UIAlertController(title: L10n.Alert.errorTitle, message: L10n.AuthError.unknownError, preferredStyle: .alert)
+		
+		let okAction = UIAlertAction(title: L10n.Alert.Actions.okAction, style: .default)
 		
 		alertVC.addAction(okAction)
 		
@@ -87,14 +88,14 @@ extension BaseRouter: AuthServiceDelegate {
 	
 	func authUserDidLogOut() {
 		
-		let alertVC = UIAlertController(title: "Вы уверены, что хотите выйти?", message: nil, preferredStyle: .alert)
-		let exitAction = UIAlertAction(title: "Выйти", style: .destructive) { _ in
+		let alertVC = UIAlertController(title: L10n.Alert.exitMessage, message: nil, preferredStyle: .alert)
+		let exitAction = UIAlertAction(title: L10n.Alert.Actions.extiAction, style: .destructive) { _ in
 			VKSdk.forceLogout()
 			let loginViewController = LoginModuleAssembly.configureLoginModule(router: self)
 			self.navigationController.setViewControllers([loginViewController], animated: true)
 		}
 		
-		let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+		let cancelAction = UIAlertAction(title: L10n.Alert.Actions.cancelAction, style: .default)
 		
 		[exitAction, cancelAction].forEach { alertVC.addAction($0) }
 		

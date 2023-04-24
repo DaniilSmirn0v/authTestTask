@@ -40,8 +40,8 @@ extension NetworkService {
 		let urlRequest = requestFactory.makeRequest(request: request)
 		
 		urlSession.dataTask(with: urlRequest) { data, response, error in
-			if let error = error {
-				completion(.failure(.unknown(error)))
+			if error != nil {
+				completion(.failure(.unknown))
 			}
 			
 			if let response = response as? HTTPURLResponse,

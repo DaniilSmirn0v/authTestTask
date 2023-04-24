@@ -55,13 +55,13 @@ extension PhotosViewController {
 	}
 	
 	private func configureNavigationBar() {
-		title = "Mobile UP Gallery"
+		title = L10n.Main.mobileup
 		
 		navigationController?.navigationBar.titleTextAttributes = [
 			NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)
 		]
 		
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход",
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: L10n.Main.exit,
 															style: .plain,
 															target: self,
 															action: #selector(didTapExitButton))
@@ -88,8 +88,8 @@ extension PhotosViewController: PhotosPresenterOutputProtocol {
 	}
 	
 	func configureViewError(_ error: String) {
-		let okAction = UIAlertAction(title: "Ок", style: .default)
-		showAlert(title: "Ошибошка", message: error, actions: [okAction])
+		let okAction = UIAlertAction(title: L10n.Alert.Actions.okAction, style: .default)
+		showAlert(title: L10n.Alert.errorTitle, message: error, actions: [okAction])
 	}
 	
 	func didSelectImage(with currentViewModelIndex: Int) {
@@ -114,7 +114,8 @@ extension PhotosViewController: UICollectionViewDataSource {
 		cellViewModels.count
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+	func collectionView(_ collectionView: UICollectionView,
+						cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reuseId,
 															for: indexPath)
 				as? PhotoCollectionViewCell else { return UICollectionViewCell() }

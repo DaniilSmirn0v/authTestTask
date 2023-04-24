@@ -149,16 +149,16 @@ extension DetailInfoViewController {
 		shareViewController.completionWithItemsHandler = { [weak self] _, success, _, error in
 			guard let self = self else { return }
 			
-			let okAction = UIAlertAction(title: "Ок", style: .default)
+			let okAction = UIAlertAction(title: L10n.Alert.Actions.okAction, style: .default)
 			
-			if let error = error {
-				self.showAlert(title: "Ошибочка", message: error.localizedDescription, actions: [okAction])
+			if error != nil {
+				self.showAlert(title: L10n.Alert.errorTitle, message: L10n.Error.unknown, actions: [okAction])
 			}
 			
 			if success {
 				let successImageString = "doneIcon"
-				let okAction = UIAlertAction(title: "Ок", style: .default)
-				self.showImageAlert(title: "Успешный успех",
+				let okAction = UIAlertAction(title: L10n.Alert.Actions.okAction, style: .default)
+				self.showImageAlert(title: L10n.Alert.successTitle,
 									message: "\n\n\n",
 									actions: [okAction],
 									alertImage: successImageString)

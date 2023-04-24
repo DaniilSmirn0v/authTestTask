@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  authTestTask
+
+  Created by Daniil on 24.04.2023.
+  
+*/
+
+
+"Authorization.login" = "Login with VK";
+
+"Main.exit" = "Exit";
+"Main.mobileup" = "MobileUp Gallery";
+
+"AuthError.unknownError" = "Something went wrong...";
+
+"Error.invalidStatusCode" = "Error \"%@\"";
+"Error.emptyData" = "Data is empty";
+"Error.decoding" = "\Data conversion error \"%@\"";
+"Error.unknown" = "Unknown error";
+
+"Alert.errorTitle" = "Error";
+"Alert.successTitle" = "Success";
+"Alert.exitMessage" = "You want to exit, are you sure?";
+
+"Alert.Actions.okAction" = "Ok";
+"Alert.Actions.cancelAction" = "Cancel";
+"Alert.Actions.extiAction" = "Exit";

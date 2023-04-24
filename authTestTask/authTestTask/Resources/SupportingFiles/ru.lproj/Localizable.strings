@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  authTestTask
+
+  Created by Daniil on 24.04.2023.
+  
+*/
+
+"Authorization.login" = "Вход через ВК";
+
+"Main.exit" = "Выйти";
+"Main.mobileup" = "MobileUp Gallery";
+
+"AuthError.unknownError" = "Что-то пошло не так...";
+
+"Error.invalidStatusCode" = "Ошибка \"%@\"";
+"Error.emptyData" = "Данные куда-то пропали";
+"Error.decoding" = "Ошибка декодирования данных \"%@\"";
+"Error.unknown" = "Неизвестная ошибка";
+
+"Alert.errorTitle" = "Ошибка";
+"Alert.successTitle" = "Успех";
+"Alert.exitMessage" = "Вы уверены, что хотите выйти?";
+
+"Alert.Actions.okAction" = "Ок";
+"Alert.Actions.cancelAction" = "Отмена";
+"Alert.Actions.extiAction" = "Выйти";

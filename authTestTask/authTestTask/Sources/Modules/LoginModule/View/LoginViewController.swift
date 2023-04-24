@@ -14,7 +14,7 @@ final class LoginViewController: UIViewController {
 	private lazy var loginButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitle("Вход через VK", for: .normal)
+		button.setTitle(L10n.Authorization.login, for: .normal)
 		button.titleLabel?.font = .systemFont(ofSize: 18)
 		button.backgroundColor = .black
 		button.tintColor = .white

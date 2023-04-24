@@ -16,7 +16,7 @@ extension UIViewController {
 		actions.forEach { alert.addAction($0) }
 		
 		if actions.isEmpty {
-			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+			alert.addAction(UIAlertAction(title: L10n.Alert.Actions.okAction, style: .default, handler: nil))
 		}
 		
 		present(alert, animated: true, completion: nil)
@@ -63,7 +63,7 @@ extension UIViewController {
 		actions.forEach { alert.addAction($0) }
 		
 		if actions.isEmpty {
-			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+			alert.addAction(UIAlertAction(title: L10n.Alert.Actions.okAction, style: .default, handler: nil))
 		}
 		
 		present(alert, animated: true, completion: nil)

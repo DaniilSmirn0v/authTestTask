@@ -11,18 +11,18 @@ enum NetworkError: Error {
 	case invalidStatusCode(_ statusCode: Int)
 	case emptyData
 	case decoding(_ error: Error)
-	case unknown(_ error: Error)
+	case unknown
 	
 	var errorDescription: String {
 		switch self {
 		case .invalidStatusCode(let statusCode):
-			return "Error \(statusCode)"
+			return  L10n.Error.invalidStatusCode(statusCode)
 		case .emptyData:
-			return "No data"
+			return L10n.Error.emptyData
 		case .decoding(let error):
-			return "Data conversion error \(error.localizedDescription)"
-		case .unknown(let error):
-			return "Error: \(error.localizedDescription)"
+			return L10n.Error.decoding(error.localizedDescription)
+		case .unknown:
+			return L10n.Error.unknown
 		}
 	}
 }
