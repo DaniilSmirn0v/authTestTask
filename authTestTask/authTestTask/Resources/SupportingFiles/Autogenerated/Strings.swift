@@ -31,11 +31,13 @@ internal enum L10n {
     internal static let unknownError = L10n.tr("Localizable", "AuthError.unknownError", fallback: "Something went wrong...")
   }
   internal enum Authorization {
+    /// Login with VK
+    internal static let login = L10n.tr("Localizable", "Authorization.login", fallback: "Login with VK")
     /// Localizable.strings
     ///   authTestTask
     /// 
     ///   Created by Daniil on 24.04.2023.
-    internal static let login = L10n.tr("Localizable", "Authorization.login", fallback: "Login with VK")
+    internal static let title = L10n.tr("Localizable", "Authorization.title", fallback: "Mobile Up\nGallery")
   }
   internal enum Error {
     /// Data conversion error "%@"

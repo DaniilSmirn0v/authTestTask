@@ -40,15 +40,24 @@ final class PhotoCollectionView: UIView {
 extension PhotoCollectionView {
 	
 	private func setupCompositionalLayout() -> UICollectionViewLayout {
-		let spacing: CGFloat = 2
+		let spacing = Constants.MainModuleConstants.Sizes.spacing
 		
-		let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(186),
-											  heightDimension: .absolute(186))
+		let itemSize = NSCollectionLayoutSize(widthDimension:
+				.absolute(Constants.MainModuleConstants.Sizes.cellItemWidth),
+											  heightDimension:
+				.absolute(Constants.MainModuleConstants.Sizes.cellItemHeight))
+		
 		let item = NSCollectionLayoutItem(layoutSize: itemSize)
 		
-		let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-											   heightDimension: .absolute(186))
-		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+		let groupSize = NSCollectionLayoutSize(widthDimension:
+				.fractionalWidth(Constants.MainModuleConstants.Sizes.groupSizeWidth),
+											   heightDimension:
+				.absolute(Constants.MainModuleConstants.Sizes.groupSizeHeight))
+		
+		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+													   subitem: item,
+													   count: Constants.MainModuleConstants.Sizes.groupCount)
+		
 		group.interItemSpacing = .fixed(spacing)
 		
 		let section = NSCollectionLayoutSection(group: group)

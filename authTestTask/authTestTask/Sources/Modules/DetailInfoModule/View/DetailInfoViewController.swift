@@ -75,7 +75,7 @@ extension DetailInfoViewController {
 		detailInfoView.scrollView.addGestureRecognizer(rightSwipeRecognizer)
 		detailInfoView.scrollView.addGestureRecognizer(bottomSwipeRecognizer)
 		detailInfoView.imageView.addGestureRecognizer(zoomGesture)
-
+		
 	}
 	
 	@objc private func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
@@ -115,7 +115,10 @@ extension DetailInfoViewController {
 	}
 	
 	private func configureNavigationBar() {
-		let backButtonImageConfiguration = UIImage.SymbolConfiguration(pointSize: 15, weight: .regular)
+		let backButtonImageConfiguration = UIImage.SymbolConfiguration(
+			pointSize: Constants.DetailModuleConstants.Fonts.navBarFontSize,
+			weight: .regular
+		)
 		let backButtonImage = UIImage(systemName: "chevron.left",
 									  withConfiguration: backButtonImageConfiguration)
 		
@@ -125,7 +128,10 @@ extension DetailInfoViewController {
 														   action: #selector(didTapBackButton))
 		navigationItem.leftBarButtonItem?.tintColor = .black
 		
-		let sharedButtonConfiguration = UIImage.SymbolConfiguration(pointSize: 15, weight: .regular)
+		let sharedButtonConfiguration = UIImage.SymbolConfiguration(
+			pointSize: Constants.DetailModuleConstants.Fonts.navBarFontSize,
+			weight: .regular
+		)
 		let sharedButtonImage = UIImage(systemName: "square.and.arrow.up",
 										withConfiguration: sharedButtonConfiguration)
 		
@@ -145,7 +151,7 @@ extension DetailInfoViewController {
 		
 		let shareViewController = UIActivityViewController(activityItems: [cellImage],
 														   applicationActivities: nil)
-		
+		shareViewController.modalPresentationStyle = .overFullScreen
 		shareViewController.completionWithItemsHandler = { [weak self] _, success, _, error in
 			guard let self = self else { return }
 			
@@ -167,8 +173,8 @@ extension DetailInfoViewController {
 		}
 		
 		present(shareViewController, animated: true)
+		
 	}
-	
 }
 
 // MARK: - DetailInfoPresenterOutputProtocol
@@ -211,7 +217,7 @@ extension DetailInfoViewController: UICollectionViewDataSource {
 		guard let viewModel = cellViewModels[indexPath.item] as? CellIdentifiable else { return UICollectionViewCell() }
 		
 		cell.configure(with: viewModel)
-
+		
 		return cell
 	}
 }

@@ -58,7 +58,8 @@ extension PhotosViewController {
 		title = L10n.Main.mobileup
 		
 		navigationController?.navigationBar.titleTextAttributes = [
-			NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)
+			NSAttributedString.Key.font: UIFont.systemFont(ofSize: Constants.MainModuleConstants.Fonts.navBarFontSize,
+														   weight: .medium)
 		]
 		
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: L10n.Main.exit,
@@ -67,7 +68,8 @@ extension PhotosViewController {
 															action: #selector(didTapExitButton))
 		navigationItem.rightBarButtonItem?.tintColor = .black
 		navigationItem.rightBarButtonItem?.setTitleTextAttributes(
-			[NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .regular)], for: .normal
+			[NSAttributedString.Key.font: UIFont.systemFont(ofSize: Constants.MainModuleConstants.Fonts.navBarFontSize,
+															weight: .regular)], for: .normal
 		)
 	}
 	
