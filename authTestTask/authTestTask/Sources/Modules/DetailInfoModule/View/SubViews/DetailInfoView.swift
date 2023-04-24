@@ -57,16 +57,21 @@ final class DetailInfoView: UIView {
 
 extension DetailInfoView {
 	private func createBottomCollectionViewLayout() -> UICollectionViewCompositionalLayout {
-		let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(54),
-											  heightDimension: .absolute(54))
+		let itemSize = NSCollectionLayoutSize(widthDimension:
+				.absolute(Constants.DetailModuleConstants.Sizes.cellItemWidth),
+											  heightDimension:
+				.absolute(Constants.DetailModuleConstants.Sizes.cellItemHeight))
+		
 		let item = NSCollectionLayoutItem(layoutSize: itemSize)
 		
-		let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(54), heightDimension: .absolute(54))
+		let groupSize = NSCollectionLayoutSize(widthDimension:
+				.absolute(Constants.DetailModuleConstants.Sizes.cellItemWidth), heightDimension:
+				.absolute(Constants.DetailModuleConstants.Sizes.cellItemHeight))
 		let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 		
 		let section = NSCollectionLayoutSection(group: group)
 		
-		section.interGroupSpacing = 2
+		section.interGroupSpacing = Constants.DetailModuleConstants.Sizes.interGroupSpacing
 		section.orthogonalScrollingBehavior = .continuous
 		
 		let layout = UICollectionViewCompositionalLayout(section: section)
@@ -92,10 +97,11 @@ extension DetailInfoView {
 			imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 			imageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
 			
-			bottomCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -34),
+			bottomCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor,
+														 constant: Constants.DetailModuleConstants.Sizes.collectionViewBottomConstant),
 			bottomCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
 			bottomCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-			bottomCollectionView.heightAnchor.constraint(equalToConstant: 54)
+			bottomCollectionView.heightAnchor.constraint(equalToConstant: Constants.DetailModuleConstants.Sizes.cellItemHeight)
 		])
 	}
 }

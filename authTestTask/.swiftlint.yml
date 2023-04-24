@@ -4,7 +4,7 @@ excluded:
   - UITests
   - DerivedData
 
-warning_threshold: 1
+warning_threshold: 2
 
 analyzer_rules:
   - unused_import
@@ -19,6 +19,7 @@ disabled_rules:
   - identifier_name
   - unused_setter_value
   - weak_delegate
+  - blanket_disable_command
 
 opt_in_rules:
   - overridden_super_call

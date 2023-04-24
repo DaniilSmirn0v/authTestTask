@@ -14,11 +14,11 @@ final class LoginViewController: UIViewController {
 	private lazy var loginButton: UIButton = {
 		let button = UIButton(type: .system)
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitle("Вход через VK", for: .normal)
-		button.titleLabel?.font = .systemFont(ofSize: 18)
+		button.setTitle(L10n.Authorization.login, for: .normal)
+		button.titleLabel?.font = .systemFont(ofSize: Constants.AuthModuleConstatnts.Fonts.buttonFontSize)
 		button.backgroundColor = .black
 		button.tintColor = .white
-		button.layer.cornerRadius = 12
+		button.layer.cornerRadius = Constants.AuthModuleConstatnts.Sizes.buttonCornerRadius
 		button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
 		
 		return button
@@ -27,8 +27,9 @@ final class LoginViewController: UIViewController {
 	private let mobileUpLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.text = "Mobile Up\nGallery"
-		label.font = UIFont(name: "SF Pro Text Bold", size: 44)
+		label.text = L10n.Authorization.title
+		label.font = UIFont(name: Constants.AuthModuleConstatnts.Fonts.titleFont,
+							size: Constants.AuthModuleConstatnts.Fonts.titleFontSize)
 		label.numberOfLines = 2
 
 		return label
@@ -72,13 +73,18 @@ extension LoginViewController {
 	
 	private func setupLayout() {
 		NSLayoutConstraint.activate([
-			mobileUpLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-			mobileUpLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 170),
+			mobileUpLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+												   constant: Constants.AuthModuleConstatnts.Sizes.labelLeadingAnchor),
+			mobileUpLabel.topAnchor.constraint(equalTo: view.topAnchor,
+											   constant: Constants.AuthModuleConstatnts.Sizes.labelTopAnchor),
 			
-			loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-			loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -42),
-			loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-			loginButton.heightAnchor.constraint(equalToConstant: 52)
+			loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+												 constant: Constants.AuthModuleConstatnts.Sizes.buttonLeadingAnchor),
+			loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+												constant: Constants.AuthModuleConstatnts.Sizes.buttonBottomAnchor),
+			loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+												  constant: Constants.AuthModuleConstatnts.Sizes.buttonTrailingAnchor),
+			loginButton.heightAnchor.constraint(equalToConstant: Constants.AuthModuleConstatnts.Sizes.buttonHeightAnchor)
 		])
 	}
 	
